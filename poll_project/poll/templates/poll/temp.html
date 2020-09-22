@@ -1,0 +1,30 @@
+<table class="table">
+  <thead class="thead-inverse">
+    <tr>
+      <th>Title</th>
+      <th>Summary Type</th>
+      <th>Date</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for summary in summarys %}
+    <tr>
+      <td>
+        <a href="{% url 'edit_summary' summary.pk %}"
+          >{{ summary.summary_title }}</a
+        >
+      </td>
+      <td class="align-middle">{{ summary.summary_doc_type }}</td>
+      <td class="align-middle">{{ summary.summary_date }}</td>
+
+      <td>
+        <form method="post" action="{% url 'delete_summary' summary.pk %}">
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

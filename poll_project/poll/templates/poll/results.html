@@ -1,0 +1,50 @@
+<!-- results.html -->
+{% extends 'poll/base.html' %} {% block title %}Results {% endblock title %}
+{%block main %}
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title" style="color: white">{{poll.question}}</h3>
+      </div>
+
+      <table class="table">
+        <thead class="thread-inverse">
+          <th style="text-align: center">Poll Options</th>
+          <th style="text-align: center">Number of Votes</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="text-align: center">{{poll.option_one}}</td>
+            <td style="text-align: center">
+              <strong>{{poll.option_one_count}}</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center">{{poll.option_two}}</td>
+            <td style="text-align: center">
+              <strong>{{poll.option_two_count}}</strong>
+            </td>
+          </tr>
+          <tr>
+            <td style="text-align: center">{{poll.option_three}}</td>
+            <td style="text-align: center">
+              <strong>{{poll.option_three_count}}</strong>
+            </td>
+          </tr>
+
+          <tr style="background-color: #330033">
+            <td style="text-align: center; color: white">
+              <strong>Total</strong>
+            </td>
+            <td style="text-align: center; color: white">
+              <strong>{{poll.total}}</strong>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock main %}
